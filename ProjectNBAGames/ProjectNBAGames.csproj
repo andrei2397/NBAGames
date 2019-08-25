@@ -140,6 +140,10 @@
     <Compile Include="ApiModels\GamesApiModels\ApiGameContent.cs" />
     <Compile Include="ApiModels\ApiMeta.cs" />
     <Compile Include="ApiModels\TeamsApiModels\ApiTeam.cs" />
+    <Compile Include="App_Start\AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\AutoMapper\AutoMapperProfiles\GamesProfile.cs" />
+    <Compile Include="App_Start\AutoMapper\AutoMapperProfiles\PageProfile.cs" />
+    <Compile Include="App_Start\AutoMapper\AutoMapperProfiles\TeamsProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
