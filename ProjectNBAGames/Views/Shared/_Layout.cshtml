@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
+    <link href="~/myTemplate/css/bootstrap.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="~/myTemplate/css/animate.css">
+    <link rel="stylesheet" href="~/myTemplate/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/myTemplate/fonts/ionicons/css/ionicons.min.css" />
+    <link rel="stylesheet" href="~/myTemplate/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/myTemplate/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="~/myTemplate/css/style.css">
+
+    <style>
+
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="container logo-wrap">
+            <div class="row pt-5">
+                <div class="col-12 text-center">
+                    <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+                    <h1 class="site-logo"><a href="~/Home">NBA Games</a></h1>
+
+
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-md  navbar-light bg-light">
+            <div class="container">
+
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="@Url.Action("Index", "Home")">Home</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="category.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sessons</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                <a class="dropdown-item" href="category.html">2018</a>
+                                <a class="dropdown-item" href="category.html">2017</a>
+                                <a class="dropdown-item" href="category.html">2016</a>
+                                @*@foreach (var dom in ViewBag.Domains)
+        {
+            <a class="dropdown-item" href="@Url.Action("Index", "Articols", new { domain = dom.Nume })">@dom.Nume</a>
+        }*@
+                            </div>
+                        </li>
+                        
+
+                        
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- END header -->
+
+    @RenderBody()
+
+
+    <footer style="padding:2em 0" class="site-footer">
+        <div class="row">
+            <div class="col-md-12">
+
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved
+
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/myTemplate/js/jquery-3.2.1.min.js"></script>
+    <script src="~/myTemplate/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/myTemplate/js/popper.min.js"></script>
+    <script src="~/myTemplate/js/bootstrap.min.js"></script>
+    <script src="~/myTemplate/js/owl.carousel.min.js"></script>
+    <script src="~/myTemplate/js/jquery.waypoints.min.js"></script>
+    <script src="~/myTemplate/js/jquery.stellar.min.js"></script>
+    <script src="~/myTemplate/js/main.js"></script>
+
+</body>
+</html>
