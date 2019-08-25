@@ -17,6 +17,11 @@ namespace ProjectNBAGames.ViewModels
             Pagination = new MetaViewModel();
         }
 
+        public static StructureViewModel<T> Empty
+        {
+            get { return new StructureViewModel<T>(); }
+        }
+
         public bool IsEmpty
         {
             get { return Data == null || !Data.Any(); }

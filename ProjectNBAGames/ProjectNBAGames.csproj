@@ -148,14 +148,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RestApiCallService.cs" />
     <Compile Include="ViewModels\GamesViewModels\GameContentViewModel.cs" />
+    <Compile Include="ViewModels\GamesViewModels\GamesFilterViewModel.cs" />
     <Compile Include="ViewModels\GamesViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\MetaViewModel.cs" />
+    <Compile Include="ViewModels\PageFilterViewModel.cs" />
     <Compile Include="ViewModels\StructureViewModel.cs" />
     <Compile Include="ViewModels\TeamsViewModels\TeamViewModel.cs" />
   </ItemGroup>
@@ -168,6 +173,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\img1.png" />
     <Content Include="myTemplate\css\animate.css" />
     <Content Include="myTemplate\css\bootstrap.css" />
     <Content Include="myTemplate\css\owl.carousel.min.css" />
@@ -232,6 +238,8 @@
     <Content Include="myTemplate\fonts\flaticon\font\Flaticon.ttf" />
     <Content Include="myTemplate\fonts\flaticon\font\Flaticon.woff" />
     <Content Include="myTemplate\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="myTemplate\fonts\icons\fonts\ionicons.eot" />
+    <Content Include="myTemplate\fonts\icons\fonts\ionicons.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -257,11 +265,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="myTemplate\images\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

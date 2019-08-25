@@ -1,0 +1,56 @@
+﻿@using ProjectNBAGames.ViewModels
+@using ProjectNBAGames.ViewModels.GamesViewModels
+@model StructureViewModel<GameViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Date</th>
+            <th>Home team</th>
+            <th>Visitor team</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model.Data)
+        {
+            <tr>
+
+                <td>@game.Date.ToString()</td>
+                <td>@Html.ActionLink(@game.HomeTeam.FullName, "Team", "Teams", new { id = game.HomeTeam.Id }, null)</td>
+                <td>@Html.ActionLink(@game.VisitorTeam.FullName, "Team", "Teams", new { id = game.VisitorTeam.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    <div class="col-md-12 text-center">
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+
+                @if (ViewBag.page > 1)
+                {
+
+                    <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page - 1})">Prev</a></li>
+                    <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = 1 })">1</a></li>
+                }
+                <li class="page-item active"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page })">@ViewBag.page</a></li>
+
+                @if (ViewBag.page < Model.Pagination.TotalPages)
+                {
+                    <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = Model.Pagination.TotalPages })">@Model.Pagination.TotalPages</a></li>
+                    <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page + 1 })">Next</a></li>
+                }
+
+
+            </ul>
+        </nav>
+    </div>
+}
+
