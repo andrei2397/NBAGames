@@ -135,11 +135,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiModels\ApiSSimpleStructure.cs" />
     <Compile Include="ApiModels\ApiStructure.cs" />
     <Compile Include="ApiModels\GamesApiModels\ApiGame.cs" />
     <Compile Include="ApiModels\GamesApiModels\ApiGameContent.cs" />
     <Compile Include="ApiModels\ApiMeta.cs" />
     <Compile Include="ApiModels\TeamsApiModels\ApiTeam.cs" />
+    <Compile Include="ApiModels\TeamsApiModels\ApiTeamContent.cs" />
     <Compile Include="App_Start\AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="App_Start\AutoMapper\AutoMapperProfiles\GamesProfile.cs" />
     <Compile Include="App_Start\AutoMapper\AutoMapperProfiles\PageProfile.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,7 +164,10 @@
     <Compile Include="ViewModels\GamesViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\MetaViewModel.cs" />
     <Compile Include="ViewModels\PageFilterViewModel.cs" />
+    <Compile Include="ViewModels\SimpleStructureViewModel.cs" />
     <Compile Include="ViewModels\StructureViewModel.cs" />
+    <Compile Include="ViewModels\TeamsViewModels\TeamContentViewModel.cs" />
+    <Compile Include="ViewModels\TeamsViewModels\TeamsFilterViewModel.cs" />
     <Compile Include="ViewModels\TeamsViewModels\TeamViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +179,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\img1.png" />
     <Content Include="myTemplate\css\animate.css" />
     <Content Include="myTemplate\css\bootstrap.css" />
     <Content Include="myTemplate\css\owl.carousel.min.css" />
@@ -266,9 +271,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\" />
     <Folder Include="Models\" />
     <Folder Include="myTemplate\images\" />
     <Folder Include="Views\Base\" />

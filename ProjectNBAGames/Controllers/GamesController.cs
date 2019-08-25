@@ -34,6 +34,8 @@ namespace ProjectNBAGames.Controllers
                 var restReponse = RestApiCallService.Call(resource);
                 var response = JsonConvert.DeserializeObject<ApiGameContent>(restReponse.Content);
                 var gamesListModel = Mapper.Map<GameContentViewModel>(response);
+                var st = response.Data.Where(x => x.Id == 1);
+                
                 return View(gamesListModel);
 
 

@@ -1,0 +1,74 @@
+﻿@using ProjectNBAGames.ViewModels
+@using ProjectNBAGames.ViewModels.TeamsViewModels
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="site-section pt-5">
+    <div class="container">
+        <h1>Team details</h1>
+        <div class="row">
+
+            <div class="col-md-2">
+
+
+                Abbreviation:
+                <div class="sidebar-box">
+                    <ul class="tags">
+
+                        <li><a href=""> @ViewBag.Abbreviation</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                City:
+                <div class="sidebar-box">
+                    <ul class="tags">
+                        <li><a href="">@ViewBag.City</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                Conference:
+                <div class="sidebar-box">
+                    <ul class="tags">
+                        <li><a href="">@ViewBag.Conference</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                Division:
+                <div class="sidebar-box">
+                    <ul class="tags">
+                        <li><a href="">@ViewBag.Division</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                FullName:
+                <div class="sidebar-box">
+                    <ul class="tags">
+                        <li><a href="">@ViewBag.FullName</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                Name:
+                <div class="sidebar-box">
+                    <ul class="tags">
+                        <li><a href="">@ViewBag.Name</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+</section>
+
+
+
+

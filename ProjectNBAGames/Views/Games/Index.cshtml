@@ -1,5 +1,8 @@
 ﻿@using ProjectNBAGames.ViewModels
 @using ProjectNBAGames.ViewModels.GamesViewModels
+@using System.Collections;
+@using System.Globalization;
+
 @model StructureViewModel<GameViewModel>
 
 @{
@@ -7,27 +10,123 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table>
-    <thead>
-        <tr>
-            <th>Index</th>
-            <th>Date</th>
-            <th>Home team</th>
-            <th>Visitor team</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var game in Model.Data)
-        {
-            <tr>
+<br />
 
-                <td>@game.Date.ToString()</td>
-                <td>@Html.ActionLink(@game.HomeTeam.FullName, "Team", "Teams", new { id = game.HomeTeam.Id }, null)</td>
-                <td>@Html.ActionLink(@game.VisitorTeam.FullName, "Team", "Teams", new { id = game.VisitorTeam.Id }, null)</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="col-md-12 text-center">
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination">
+
+            @if (ViewBag.page > 1)
+            {
+
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page - 1})">Prev</a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = 1 })">1</a></li>
+            }
+            <li class="page-item active"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page })">@ViewBag.page</a></li>
+
+            @if (ViewBag.page < Model.Pagination.TotalPages)
+            {
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = Model.Pagination.TotalPages })">@Model.Pagination.TotalPages</a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Games", new { season = ViewBag.Season, page = (int)ViewBag.page + 1 })">Next</a></li>
+            }
+
+
+        </ul>
+    </nav>
+</div>
+
+
+<section class="site-section pt-5">
+    <div class="container">
+        <div class="row">
+
+
+            @foreach (var game in Model.Data)
+            {
+
+                //int[] index = new int[2];
+
+                //Random ranNum = new Random();
+                //string[] fileImages = Directory.GetFiles(Server.MapPath("~/img"));
+
+                //for(int i=0; i<2;i++)
+                //{
+                //    int r = ranNum.Next(fileImages.Length);
+                //    index[i] = r;
+                //}
+                //string imgUrl = fileImages[index[0]];
+                //var imgName = imgUrl.Substring(imgUrl.LastIndexOf("\\")+1);
+
+                Random ranNum = new Random();
+                string[] fileImages = Directory.GetFiles(Server.MapPath("~/img"));
+                string imgUrl = fileImages[ranNum.Next(fileImages.Length)];
+                var imgName = imgUrl.Substring(imgUrl.LastIndexOf("\\") + 1);
+                <div class="col-md-4" style="margin-bottom:15%">
+                    <h2>Home Team</h2>
+                    Home team score: @game.HomeTeamScore
+                    <a href="@Url.Action("Details", "Teams", new { id = game.HomeTeam.Id })" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        @*<img src="@Url.Content(String.Format("~/img/{0}", imgName))" alt="Image placeholder" style="width:100%; height:250px"/>*@
+                        <img src="@Url.Content(String.Format("~/img/{0}", imgName))" alt="Image placeholder" style="width:100%; height:250px" />
+                        <div class="blog-content-body" style="height:30%">
+                            <div class="post-meta">
+
+
+                            </div>
+                            <h2>@game.HomeTeam.FullName</h2>
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <div class="col-md-4" style="margin-bottom:15%">
+                    <br />
+                    <br />
+                    <br />
+
+
+                    <h5>Date event:</h5>
+                    <h6>@game.Date</h6>
+                    <h5>Season:</h5>
+                    <h6>@game.Season</h6>
+
+                </div>
+
+
+
+
+                //string imgUrl2 = fileImages[index[1]];
+                //var imgName2 = imgUrl.Substring(imgUrl.LastIndexOf("\\")+1);
+
+                Random ranNum2 = new Random();
+
+                string imgUrl2 = fileImages[ranNum.Next(fileImages.Length)];
+                var imgName2 = imgUrl2.Substring(imgUrl2.LastIndexOf("\\") + 1);
+                <div class="col-md-4" style="margin-bottom:15%">
+                    <h2>Visitor Team</h2>
+                    Visitor team score: @game.VisitorTeamScore
+                    <a href="@Url.Action("Details", "Teams", new { id = game.VisitorTeam.Id })" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                        @*<img src="@Url.Content(String.Format("~/img/{0}", imgName2))" alt="Image placeholder" style="width:100%; height:250px" />*@
+                        <img src="@Url.Content(String.Format("~/img/{0}",imgName2))" alt="Image placeholder" style="width:100%; height:250px" />
+                        <div class="blog-content-body" style="height:30%">
+                            <div class="post-meta">
+
+
+                            </div>
+                            <h2>@game.VisitorTeam.FullName</h2>
+                        </div>
+                    </a>
+
+                </div>
+
+
+            }
+
+        </div>
+        <br />
+    </div>
+</section>
+
 
 @{
     <div class="col-md-12 text-center">

@@ -4,11 +4,12 @@ using ProjectNBAGames.ViewModels.TeamsViewModels;
 
 namespace ProjectNBAGames.App_Start.AutoMapper.AutoMapperProfiles
 {
-    public class TeamsProfile:Profile
+    public class TeamsProfile : Profile
     {
         public TeamsProfile()
         {
             CreateMap<ApiTeam, TeamViewModel>();
+            CreateMap<ApiTeamContent, TeamContentViewModel>();
         }
     }
 }
