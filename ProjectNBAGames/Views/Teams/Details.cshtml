@@ -67,6 +67,64 @@
 
             </div>
         </div>
+       
+        <br />
+  
+        <div class="row">
+
+
+            @foreach (var player in ViewBag.playersAtTeam)
+            {
+
+                  Random ranNum = new Random();
+                string[] fileImages = Directory.GetFiles(Server.MapPath("~/imgPlayers"));
+                string imgUrl = fileImages[ranNum.Next(fileImages.Length)];
+                var imgName = imgUrl.Substring(imgUrl.LastIndexOf("\\") + 1);
+                <div class="col-md-4">
+                    <h2>@player.FirstName @player.LastName</h2>
+                    <a href="" class="blog-entry element-animate" data-animate-effect="fadeIn">
+
+                        <img src="@Url.Content(String.Format("~/imgPlayers/{0}", imgName))" alt="Image placeholder" style="width:80%; height:80%">
+                    </a>
+
+                </div>
+                <div class="col-md-8">
+                    <br />
+                    <br />
+                    <div class="col-md-3">
+                        Height Feet:
+                        <div class="sidebar-box">
+                            <ul class="tags">
+                                @if (player.HeightFeet == null)
+                                {
+                                    <li><a href=""> null </a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="">@player.HeightFeet</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        Weight Pounds
+                        <div class="sidebar-box">
+                            <ul class="tags">
+                                <li><a href=""> @player.WeightPounds </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        Position on court
+                        <div class="sidebar-box">
+                            <ul class="tags">
+                                <li><a href=""> @player.Position</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
 </section>
 
 
