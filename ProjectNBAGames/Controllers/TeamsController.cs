@@ -28,7 +28,6 @@ namespace ProjectNBAGames.Controllers
                 var resource = string.Format("teams/{0}", model.Id);
                 var restReponse = RestApiCallService.Call(resource);
                 ApiTeam response = JsonConvert.DeserializeObject<ApiTeam>(restReponse.Content);
-
                 ViewBag.Abbreviation = response.Abbreviation;
                 ViewBag.City = response.City;
                 ViewBag.Conference = response.Conference;
@@ -36,8 +35,8 @@ namespace ProjectNBAGames.Controllers
                 ViewBag.FullName = response.FullName;
                 ViewBag.Id = response.Id;
                 ViewBag.Name = response.Name;
-
-                getPlayers(response.Id);
+                GetPlayers(response.Id);
+              
                 return View();
             }
             catch (Exception exception)
@@ -47,14 +46,12 @@ namespace ProjectNBAGames.Controllers
                 return View(TeamContentViewModel.Empty);
             }
         }
-        public void getPlayers(int? id)
+        public void GetPlayers(int? id)
         {
             try
             {
             
                 var resourcePlayers = string.Format("players");
-
-
                 var restReponsePlayers = RestApiCallService.Call(resourcePlayers);
                 var responsePlayers = JsonConvert.DeserializeObject<ApiPlayerContent>(restReponsePlayers.Content);      
                 ViewBag.playersAtTeam = responsePlayers.Data.Where(s => s.Team.Id == id);
