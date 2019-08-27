@@ -28,3 +28,4 @@ When you select a team, the page with team details will display:
   * division
   * full name
   * name
+  * Players from that team with height, wight and position on court. 
