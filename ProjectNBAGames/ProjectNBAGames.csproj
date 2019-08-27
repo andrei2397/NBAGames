@@ -135,7 +135,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiModels\ApiSSimpleStructure.cs" />
     <Compile Include="ApiModels\ApiStructure.cs" />
     <Compile Include="ApiModels\GamesApiModels\ApiGame.cs" />
     <Compile Include="ApiModels\GamesApiModels\ApiGameContent.cs" />
@@ -166,7 +165,6 @@
     <Compile Include="ViewModels\GamesViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\MetaViewModel.cs" />
     <Compile Include="ViewModels\PageFilterViewModel.cs" />
-    <Compile Include="ViewModels\SimpleStructureViewModel.cs" />
     <Compile Include="ViewModels\StructureViewModel.cs" />
     <Compile Include="ViewModels\TeamsViewModels\TeamContentViewModel.cs" />
     <Compile Include="ViewModels\TeamsViewModels\TeamsFilterViewModel.cs" />
